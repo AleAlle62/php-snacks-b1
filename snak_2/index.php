@@ -11,27 +11,27 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
 		$mail = $_GET['mail'];
 		$chiocciola = strpos($mail, '@');
 		if ($chiocciola && strpos($mail, '.', $chiocciola)) {
-			$message = '- Mail inserita correttamente';
+			$message = '- Accesso riuscito';
 		} else {
-			$message = '- Mail inserita non valida';
+			$message = '- Accesso negato';
 		}
     };
     //logica del nome piu lungo di 3 caratteri
     if (isset($_GET['name'])) {
 		$name = $_GET['name'];
 		if (strlen($name) > 3) {
-			$message_name = '- nome inserito correttamente';
+			$message_name = '- Accesso riuscito';
 		} else {
-			$message_name = '- nome troppo corto';
+			$message_name = '- Accesso negato';
 		}
     };
     //logica che eta sia un numero
     if (isset($_GET['age'])) {
 		$age = $_GET['age'];
 		if (is_numeric($age)) {
-			$message_age = '- eta corretta';
+			$message_age = '- Accesso riuscito';
 		} else {
-			$message_age = '- inserisci dei numeri';
+			$message_age = '- Accesso negato';
 		}
     };
 ?>
@@ -60,6 +60,7 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
         <h3><?= $message ?></h3>
         <h3><?= $message_name ?></h3>
         <h3><?= $message_age ?></h3>
+        <h3><?= $last_message ?></h3>
 	</form>
 </body>
 </html>
