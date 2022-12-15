@@ -6,32 +6,41 @@ Passare come parametri GET name, mail e age e verificare (cercando i metodi che 
 
 <!-- logica -->
 <?php
+	$mail = isset($_GET['mail']) ? $_GET['mail'] :'';
+	$name = isset($_GET['name']) ? $_GET['name'] :'';
+	$age = isset($_GET['age']) ? $_GET['age'] :'';
+	$message = isset($_GET['message']) ? $_GET['message'] :'';
+	$message_name = isset($_GET['message_name']) ? $_GET['message_name'] :'';
+	$message_age = isset($_GET['message_age']) ? $_GET['message_age'] :'';
+	$last_message = isset($_GET['last_message']) ? $_GET['last_message'] :'';
+
+
     // logica della @ e del punto 
 	if (isset($_GET['mail'])) {
 		$mail = $_GET['mail'];
 		$chiocciola = strpos($mail, '@');
 		if ($chiocciola && strpos($mail, '.', $chiocciola)) {
-			$message = '- Accesso riuscito';
+			$message = '- mail: Accesso riuscito';
 		} else {
-			$message = '- Accesso negato';
+			$message = '- mail: Accesso negato';
 		}
     };
     //logica del nome piu lungo di 3 caratteri
     if (isset($_GET['name'])) {
 		$name = $_GET['name'];
 		if (strlen($name) > 3) {
-			$message_name = '- Accesso riuscito';
+			$message_name = '- name: Accesso riuscito';
 		} else {
-			$message_name = '- Accesso negato';
+			$message_name = '- name: Accesso negato';
 		}
     };
     //logica che eta sia un numero
     if (isset($_GET['age'])) {
 		$age = $_GET['age'];
 		if (is_numeric($age)) {
-			$message_age = '- Accesso riuscito';
+			$message_age = '- age: Accesso riuscito';
 		} else {
-			$message_age = '- Accesso negato';
+			$message_age = '- age: Accesso negato';
 		}
     };
 ?>

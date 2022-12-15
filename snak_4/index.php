@@ -7,13 +7,17 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
 
 
 <?php
-    $numeri = [];
-    while (count($numeri) < 15) {
-        $numran .= rand(0,100);
-        if (!in_array($numran,$numeri)) {
-            $numeri[] = $numran;
+    $n_random = 15;
+    $arr_random = [];
+    $min = 0;
+    $max = 100;
+    while (count($arr_random) < $n_random) {
+        $random_number = rand($min, $max);
+        if (!in_array($random_number, $arr_random)) {
+            $arr_random[] = $random_number;
         };
     };
+    var_dump($arr_random);
 ?>
 
 
@@ -24,11 +28,7 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>snak 4</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="centro">
-        <h1><?php echo($numran)?></h1>
-    </div>
 </body>
 </html>
